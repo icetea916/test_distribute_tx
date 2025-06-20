@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test_txmsg_order?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+
+test:
+  create-order-topic: txmsg_topic
+
+rocketmq:
+  name-server: 192.168.136.128:9876
+  producer:
+    group: txmsg_produce_group
+    enable-msg-trace: true
