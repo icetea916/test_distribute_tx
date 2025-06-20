@@ -1,0 +1,25 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test_seata_at_user_point?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  application:
+    name: test-seata-user-point
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+
+seata:
+  config:
+    type: file
+    file:
+      name: seataServer.properties
+  registry:
+    type: file
+  tx-service-group: default_tx_group
+  application-id: ${spring.application.name}
+#  use-jdk-proxy: true
+#  enable-auto-data-source-proxy: false
